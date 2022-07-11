@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="index.css">
+        <title>Password Generator</title>
+    </head>
+    <body>
+        <div class="container-dark" id="container">
+            <div class="lightMode-container">
+                ☀️
+                <div class="dark-mode" id="lightMode" onclick="toggleLight()">
+                    <div class="dark-btn" id="lightBtn"></div>
+                </div>
+                🌙
+            </div>
+            <h1 class="head">Generate a <br/> <span style="color: #4ADF86;">random password</span></h1>
+            <p class="sub-head" id="subHead">Never use an insecure password again.</p>
+            <div class="toggles-container">
+                <div class="toggles">
+                    <label>
+                        Numbers
+                        <input id="numbers" type="checkbox" onclick="modifyPassword(event)" checked/>
+                    </label>
+                    <label>
+                        Symbols
+                        <input id="symbols" type="checkbox" onclick="modifyPassword(event)" checked/>
+                    </label>
+                    <label>
+                        Password Length
+                        <input id="passwordLength" type="number" value="15" max="15" min="8" onclick="selectLength()"/>
+                    </label>
+                </div>
+                <button onclick="toggleClick()">Generate passwords</button>
+            </div>
+            <hr />
+            <div class="passwords-container">
+                <div id="password1" onclick="copyPassword(event)"></div>
+                <div id="password2" onclick="copyPassword(event)"></div>
+            </div>
+        </div>
+        <p class="footer">Made with 🤍 by <a href="https://github.com/nzabajp">/nzabajp</a></p>
+        <script src="index.js"></script>
+    </body>
+</html>
