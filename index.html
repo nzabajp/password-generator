@@ -6,11 +6,11 @@
         <title>Password Generator</title>
     </head>
     <body>
-        <div class="container-dark" id="container">
-            <div class="lightMode-container">
+        <div id="container">
+            <div class="toggle-container">
                 ☀️
-                <div class="dark-mode" id="lightMode" onclick="toggleLight()">
-                    <div class="dark-btn" id="lightBtn"></div>
+                <div class="toggle-mode" id="lightMode" onclick="toggleLight()">
+                    <div class="toggle-btn" id="lightBtn"></div>
                 </div>
                 🌙
             </div>
@@ -37,6 +37,13 @@
             <div class="passwords-container">
                 <div id="password1" onclick="copyPassword(event)"></div>
                 <div id="password2" onclick="copyPassword(event)"></div>
+            </div>
+            <p class="instructions">Click on the desired password to copy it to your clipboard</p>
+        </div>
+        <div id="modal-container">
+            <div id="modal">
+                <h3>The password has been copied to your clipboard!</h3>
+                <button onclick="closeModal()">Close</button>
             </div>
         </div>
         <p class="footer">Made with 🤍 by <a href="https://github.com/nzabajp">/nzabajp</a></p>

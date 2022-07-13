@@ -8,6 +8,7 @@ const lightMode = document.getElementById("lightMode")
 const lightBtn = document.getElementById("lightBtn")
 const container = document.getElementById("container")
 const subHead = document.getElementById("subHead")
+const modal = document.getElementById("modal-container")
 
 let passwordProps = {
     length: 15,
@@ -18,20 +19,22 @@ let passwordProps = {
 
 function toggleLight() {
     if(passwordProps.light) {
-        lightMode.classList.replace("light-mode", "dark-mode")
-        lightBtn.classList.replace("light-btn", "dark-btn")
-        container.classList.replace("container-light", "container-dark")
-        subHead.classList.replace("sub-head", "sub-head-dark")
+        lightMode.style.backgroundColor = "#ECFDF5"
+        lightBtn.style.transform = "translateX(15px)"
+        container.style.backgroundColor = "#1F2937"
+        container.style.color = "white"
+        subHead.style.color = "#D5D4D8"
         passwordProps = {
             ...passwordProps,
             light: false
         }
         console.log(lightMode.classList)
     } else {
-        lightMode.classList.replace("dark-mode", "light-mode")
-        lightBtn.classList.replace("dark-btn", "light-btn")
-        container.classList.replace("container-dark", "container-light")
-        subHead.classList.replace("sub-head-dark", "sub-head")
+        lightMode.style.backgroundColor = "#1F2937"
+        lightBtn.style.transform = "translateX(1px)"
+        container.style.backgroundColor = "#ECFDF5"
+        container.style.color = "#2B283A"
+        subHead.style.color = "#6B7280"
         passwordProps = {
             ...passwordProps,
             light: true
@@ -57,12 +60,18 @@ function modifyPassword(event) {
 
 function copyPassword(event) {
     const {innerHTML} = event.target
-    navigator.clipboard.writeText(innerHTML)
-    .then(function() {
-        alert("Password copied!")
-    }, function(err) {
-         alert(err)
-    });
+    if(innerHTML) {
+        navigator.clipboard.writeText(innerHTML)
+        .then(function() {
+            modal.style.display = "block"
+        }, function(err) {
+            alert(err)
+        });
+    }
+}
+
+function closeModal() {
+    modal.style.display = "none"
 }
 
 function toggleClick() {
